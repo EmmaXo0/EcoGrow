@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoGrow Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">EcoGrow</div>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Cultivos</a></li>
+                <li><a href="#">Estadísticas</a></li>
+                <li><a href="#">Ayuda</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Sección para la temperatura y humedad de los sensores AHT10 -->
+        <section class="charts-section">
+            <h2>Monitoreo en tiempo real del ambiente</h2>
+            <div class="charts-container">
+                <div class="chart-item">
+                    <div class="chart-title">Temperatura Sensor 1</div>
+                    <div class="donut-chart" id="temp1-chart" data-value="25">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                            <circle class="circle" cx="50" cy="50" r="45"></circle>
+                        </svg>
+                        <div class="donut-value">25</div>
+                        <div class="donut-unit">°C</div>
+                    </div>
+                </div>
+
+                <div class="chart-item">
+                    <div class="chart-title">Humedad Sensor 1</div>
+                    <div class="donut-chart" id="hum1-chart" data-value="60">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                            <circle class="circle" cx="50" cy="50" r="45"></circle>
+                        </svg>
+                        <div class="donut-value">60</div>
+                        <div class="donut-unit">%</div>
+                    </div>
+                </div>
+
+                <div class="chart-item">
+                    <div class="chart-title">Temperatura Sensor 2</div>
+                    <div class="donut-chart" id="temp2-chart" data-value="24">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                            <circle class="circle" cx="50" cy="50" r="45"></circle>
+                        </svg>
+                        <div class="donut-value">24</div>
+                        <div class="donut-unit">°C</div>
+                    </div>
+                </div>
+
+                <div class="chart-item">
+                    <div class="chart-title">Humedad Sensor 2</div>
+                    <div class="donut-chart" id="hum2-chart" data-value="58">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                            <circle class="circle" cx="50" cy="50" r="45"></circle>
+                        </svg>
+                        <div class="donut-value">58</div>
+                        <div class="donut-unit">%</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección para la temperatura del agua -->
+        <section class="water-temp-section">
+            <h2>Temperatura del Agua</h2>
+            <div class="water-temp-container">
+                <div class="water-temp-bar-container">
+                    <div class="water-temp-label min-temp">15°C</div>
+                    <div class="water-temp-bar">
+                        <div class="water-temp-fill" id="water-temp-fill"></div>
+                    </div>
+                    <div class="water-temp-label max-temp">35°C</div>
+                </div>
+                <div class="water-temp-value" id="water-temp-value">22.3°C</div>
+            </div>
+        </section>
+
+        <!-- Sección para los switches de riego e iluminación -->
+        <section class="switches-section">
+            <h2>Controles del sistema</h2>
+            <div class="switches-container">
+                <div class="switch-item">
+                    <div class="switch-title">Sistema de riego</div>
+                    <label class="switch">
+                        <input type="checkbox" id="rele1-switch">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="switch-item">
+                    <div class="switch-title">Iluminación</div>
+                    <label class="switch">
+                        <input type="checkbox" id="rele2-switch">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección para el estado de la API -->
+        <section class="status-section">
+            <div class="status-info">
+                <div class="status-label">Estado del Sistema:</div>
+                <div class="status-value" id="system-status">En línea</div>
+            </div>
+            <div class="status-info">
+                <div class="status-label">Última actualización:</div>
+                <div class="status-value" id="last-update">Cargando...</div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/script.js"></script>
+</body>
+</html>
